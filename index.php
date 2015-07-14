@@ -1,14 +1,11 @@
 <?php
 
-require_once  __DIR__ . '/bootstrap.php';
-
-//use IdestDev\Util\Calculator;
-//
-//$calc = new Calculator();
-//printf("calc: 5 + 5 = %s\n", $calc->add(5, 5));
+require_once  __DIR__ . '/loader.php';
 
 use IdestDev\Fixtures\SomeClass;
+use IdestDev\Fixtures\Some_Underscored_Class;
 
 $someClass = new SomeClass();
-
+$anotherClass = new Some_Underscored_Class();
+$otherClass = new IdestDev_Fixtures_OtherClass();
 

@@ -10,7 +10,7 @@ namespace IdestDev\Fixtures;
 class SomeClass {
     
     public function __construct() {
-        echo 'Hello from SomeClass!';
+        echo 'Hello from SomeClass!', PHP_EOL;
     }
     
 }
