@@ -4,12 +4,18 @@
 You can simply add this snippet into your *composer.json* 
 
 
-{ 
+{
+
     "autoload": {
-            "psr-0": { 
-                "": "src/"
-            }
+
+        "psr-0": {
+
+        "": "src/"
+
         }
+
+    }
+
 }
 
 
