@@ -13,7 +13,7 @@ You can simply add this snippet into your *composer.json*
 }
 ```
 
-Do not to forget to include *autoload.php* 
+Do not forget to include *autoload.php* 
 
 ```php
 require_once __DIR__ . '/vendor/autoload.php';`
