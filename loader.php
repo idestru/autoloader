@@ -4,52 +4,40 @@
  * Contains autoloding function
  */
 
+$path = __DIR__ . '/src';
+set_include_path(get_include_path() . PATH_SEPARATOR . $path);
+
+spl_autoload_register(array('Autoloader', 'load'));
+
 //var_dump(spl_autoload_functions()); 
+
 /**
  * Ouput
  * 
  * array(1) {
+ *   [0] =>
+ *   array(2) {
  *     [0] =>
- *     string(10) "__autoload"
+ *     string(10) "Autoloader"
+ *     [1] =>
+ *     string(4) "load"
+ *   }
  * }
  * 
  */
 
 /**
- * Autoloading magic function
+ * Autoloding class
  * 
- *  IdestDev\Fixtures\SomeClass              -> DIR/src/IdestDev/Fixtures/SomeClass.php
- *  IdestDev\Fixtures\Some_Underscored_Class -> DIRsrc/IdestDev/Fixtures/Some/Undescored/Class.php
- * 
- * @param string $className
+ * IdestDev\IdestDev\SomeClass -> DIR/src/IdestDev/IdestDev/SomeClass.php
  */
-function __autoload($className) {
-
-    $path = __DIR__ . '/src';
-    set_include_path(get_include_path() . PATH_SEPARATOR . $path);
-
-    // skip the begining slash // I did not find it on Ubuntu
-    $className = ltrim($className, '\\');
-    $fileName  = '';
-    $namespace = '';
-    
-    // if the $className has backslash
-    if ($lastNsPos = strrpos($className, '\\')) {
+class Autoloader
+{
+    public static function load($className)
+    {
+        $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+        printf("Class %s is being loaded from %s\n", $className, $fileName);
         
-        // All that before the last slash is the namespace
-        $namespace = substr($className, 0, $lastNsPos);
-
-        // All that after the last slash is the classname
-        $className = substr($className, $lastNsPos + 1);
-        
-        // Replace all backslashes with DIRECTORY_SEPARATOR
-        $fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) 
-                . DIRECTORY_SEPARATOR;
+        require($fileName);
     }
-    
-    // If the filename contains the underscores
-    // replace them with DIRECTORY_SEPARATOR
-    $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-    
-    require $fileName;    
 }
