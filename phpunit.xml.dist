@@ -11,7 +11,7 @@
     backupGlobals="false"
     syntaxCheck="true"
 >
-    <testsuite name="PSR0 tests">
-        <directory>./src/PSR0/IdestDev/Util/Tests</directory>
+    <testsuite name="IdestDev class loader tests">
+        <directory>./src/IdestDev/Util/Tests</directory>
     </testsuite>
 </phpunit>
