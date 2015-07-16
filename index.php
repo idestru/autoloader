@@ -3,9 +3,8 @@
 require_once  __DIR__ . '/loader.php';
 
 use IdestDev\Fixtures\SomeClass;
-use IdestDev\Fixtures\Some_Underscored_Class;
+use IdestDev\Logger\SomeLoggerClass;
 
+// both classes are in the same namespace but in the different directories
 $someClass = new SomeClass();
-$anotherClass = new Some_Underscored_Class();
-$otherClass = new IdestDev_Fixtures_OtherClass();
-
+$someLoggerClass = new SomeLoggerClass();

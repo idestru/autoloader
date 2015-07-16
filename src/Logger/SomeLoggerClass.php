@@ -1,13 +1,13 @@
 <?php
 
-namespace IdestDev\Fixtures;
+namespace IdestDev\Logger;
 
 /**
- * Description of SomeClass.
+ * Description of SomeLogerClass.
  *
  * @author oleg
  */
-class SomeClass
+class SomeLoggerClass
 {
     public function __construct()
     {
