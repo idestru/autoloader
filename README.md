@@ -26,8 +26,23 @@ Add your source folder into *composer.json* autoload section
 Do not forget to include *autoload.php* 
 
 ```php
-require_once __DIR__ . '/vendor/autoload.php';`
+require_once __DIR__ . '/vendor/autoload.php';
 ```
+
+## PSR-0
+
+```php
+$loader->addPrefix('Symfony', array(
+    __DIR__.'/src',
+    __DIR__.'/symfony/src'
+));
+
+// register a prefix for a class following the PEAR naming conventions
+$loader->addPrefix('Twig_', __DIR__.'/vendor/twig/twig/lib');
+```
+
+## PSR-4
+
 
 ## Autoloading with symfony/class-loader component
 
