@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Contains Symfony PSR-0 class loader
+ * Contains Symfony PSR-4 class loader
  */
 
 require_once __DIR__.'/vendor/symfony/class-loader/Psr4ClassLoader.php';
