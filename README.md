@@ -29,20 +29,6 @@ Do not forget to include *autoload.php*
 require_once __DIR__ . '/vendor/autoload.php';
 ```
 
-## PSR-0
-
-```php
-$loader->addPrefix('Symfony', array(
-    __DIR__.'/src',
-    __DIR__.'/symfony/src'
-));
-
-// register a prefix for a class following the PEAR naming conventions
-$loader->addPrefix('Twig_', __DIR__.'/vendor/twig/twig/lib');
-```
-
-## PSR-4
-
 
 ## Autoloading with symfony/class-loader component
 
@@ -54,3 +40,29 @@ $loader->addPrefix('Twig_', __DIR__.'/vendor/twig/twig/lib');
 
 [sl]: https://github.com/symfony/ClassLoader
 [composer]: https://getcomposer.org/
+
+### PSR-0
+
+```php
+
+/**
+ *  Symfony\SomeClass() ->  __DIR__/src/Symfony/SomeClass.php
+ *  or if not found     ->  __DIR__/symfony/src/Symfony/SomeClass.php
+ */
+$loader->addPrefix('Symfony', array(
+    __DIR__.'/src',
+    __DIR__.'/symfony/src'
+));
+
+// register a prefix for a class following the PEAR naming conventions
+$loader->addPrefix('Twig_', __DIR__.'/vendor/twig/twig/lib');
+```
+
+### PSR-4
+
+```php
+/**
+ *  Symfony\SomeClass() ->  __DIR__/src/SomeClass.php
+ */
+$loader->addPrefix('Symfony', __DIR__.'/src');
+```
